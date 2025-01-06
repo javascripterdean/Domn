@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite</title>
+    <title>Quer Namorar Comigo?</title>
     <style>
         body {
             display: flex;
@@ -13,80 +13,69 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
+        }
+        .container {
             text-align: center;
         }
-
-        .container {
-            max-width: 400px;
-        }
-
-        .message {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
         .buttons {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+            margin-top: 20px;
         }
-
         button {
             padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
+            font-size: 18px;
             border: none;
             border-radius: 5px;
-            background-color: #007BFF;
+            cursor: pointer;
+        }
+        #no {
+            background-color: #ff6347;
             color: white;
-            transition: transform 0.2s;
         }
-
-        button:hover {
-            transform: scale(1.1);
-        }
-
-        .hidden {
-            display: none;
+        #yes {
+            background-color: #32cd32;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="message">Gostaria de saber se você quer sair comigo?!!</div>
+        <h1>Quer namorar comigo?</h1>
         <div class="buttons">
-            <button id="yes-button">Sim</button>
-            <button id="no-button">Não</button>
+            <button id="yes">Sim</button>
+            <button id="no">Não</button>
         </div>
-        <div id="response-message" class="hidden">Eu sabia que você não iria resistir!</div>
     </div>
 
     <script>
-        const noButton = document.getElementById('no-button');
-        const yesButton = document.getElementById('yes-button');
-        const responseMessage = document.getElementById('response-message');
-        const container = document.querySelector('.buttons');
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
 
-        noButton.addEventListener('mouseenter', () => {
-            const containerRect = container.getBoundingClientRect();
-            const buttonRect = noButton.getBoundingClientRect();
+        // Função para gerar uma posição aleatória
+        function randomPosition() {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            return { left: `${x}px`, top: `${y}px` };
+        }
 
-            const randomX = Math.random() * (containerRect.width - buttonRect.width);
-            const randomY = Math.random() * (containerRect.height - buttonRect.height);
-
+        // Evento de mouseover para mudar a posição do botão "Não"
+        noButton.addEventListener('mouseover', () => {
+            const pos = randomPosition();
             noButton.style.position = 'absolute';
-            noButton.style.left = `${randomX}px`;
-            noButton.style.top = `${randomY}px`;
+            noButton.style.left = pos.left;
+            noButton.style.top = pos.top;
         });
 
-        noButton.addEventListener('click', (event) => {
-            event.preventDefault();
+        // Evento de toque para dispositivos móveis
+        noButton.addEventListener('touchstart', () => {
+            const pos = randomPosition();
+            noButton.style.position = 'absolute';
+            noButton.style.left = pos.left;
+            noButton.style.top = pos.top;
         });
 
+        // Evento de clique no botão "Sim"
         yesButton.addEventListener('click', () => {
-            responseMessage.classList.remove('hidden');
-            container.classList.add('hidden');
+            alert('Agora você é totalmente minha! Bjss Dominy');
         });
     </script>
 </body>
