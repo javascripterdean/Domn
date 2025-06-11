@@ -72,9 +72,9 @@
   </div>
 
   <audio autoplay loop>
-    <source src="https://raw.githubusercontent.com/javascripterdean/Domn/main/efeito-jumento.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio 😢
-  </audio>
+  <source src="https://raw.githubusercontent.com/javascripterdean/Domn/main/efeito-jumento.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio 😢
+</audio>
 
   <script>
     const botao = document.getElementById('botao-coracao');
