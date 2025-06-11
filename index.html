@@ -1,82 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quer Namorar Comigo?</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-        }
-        .container {
-            text-align: center;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #no {
-            background-color: #ff6347;
-            color: white;
-        }
-        #yes {
-            background-color: #32cd32;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia dos Namorados 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #botao-coracao {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 80px;
+      color: red;
+      transition: transform 0.3s ease;
+    }
+
+    #botao-coracao:hover {
+      transform: scale(1.2);
+    }
+
+    .mensagem {
+      display: none;
+      text-align: center;
+      font-size: 2rem;
+      color: #c71585;
+      margin-top: 20px;
+    }
+
+    .te-amo {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      color: #ff1493;
+    }
+
+    .coraçao {
+      position: absolute;
+      font-size: 30px;
+      color: red;
+      animation: flutuar 3s linear infinite;
+    }
+
+    @keyframes flutuar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Quer namorar comigo?</h1>
-        <div class="buttons">
-            <button id="yes">Sim</button>
-            <button id="no">Não</button>
-        </div>
-    </div>
+  <button id="botao-coracao">❤️</button>
+  <div class="mensagem" id="mensagem">
+    <p feliz dia dos namorados be te amo muito muito que nosso amor dure pro resto da vida,vc é uma garota incrivel e tras cores a ele </p>
+    <p class="te-amo">Te amo, Ayla 💘</p>
+  </div>
 
-    <script>
-        const noButton = document.getElementById('no');
-        const yesButton = document.getElementById('yes');
+  <script>
+    const botao = document.getElementById('botao-coracao');
+    const mensagem = document.getElementById('mensagem');
 
-        // Função para gerar uma posição aleatória
-        function randomPosition() {
-            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
-            return { left: `${x}px`, top: `${y}px` };
-        }
+    botao.addEventListener('click', () => {
+      botao.style.display = 'none';
+      mensagem.style.display = 'block';
+      explodirCoracoes();
+    });
 
-        // Evento de mouseover para mudar a posição do botão "Não"
-        noButton.addEventListener('mouseover', () => {
-            const pos = randomPosition();
-            noButton.style.position = 'absolute';
-            noButton.style.left = pos.left;
-            noButton.style.top = pos.top;
-        });
+    function explodirCoracoes() {
+      for (let i = 0; i < 80; i++) {
+        const coracao = document.createElement('div');
+        coracao.classList.add('coraçao');
+        coracao.style.left = Math.random() * 100 + 'vw';
+        coracao.style.top = Math.random() * 100 + 'vh';
+        coracao.innerText = '❤️';
+        document.body.appendChild(coracao);
 
-        // Evento de toque para dispositivos móveis
-        noButton.addEventListener('touchstart', () => {
-            const pos = randomPosition();
-            noButton.style.position = 'absolute';
-            noButton.style.left = pos.left;
-            noButton.style.top = pos.top;
-        });
-
-        // Evento de clique no botão "Sim"
-        yesButton.addEventListener('click', () => {
-            alert('Agora você é totalmente minha! Bjss Dominy');
-        });
-    </script>
+        setTimeout(() => {
+          coracao.remove();
+        }, 3000);
+      }
+    }
+  </script>
 </body>
 </html>
