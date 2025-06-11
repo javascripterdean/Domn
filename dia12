@@ -71,10 +71,11 @@
     <p class="te-amo">Te amo, Ayla 💘</p>
   </div>
 
-  <audio autoplay loop>
-  <source src="https://github.com/javascripterdean/Domn/raw/refs/heads/main/Lana%20Del%20Rey%20-%20Ultraviolence.mp3">
+ <audio autoplay loop>
+  <source src="https://github.com/javascripterdean/Domn/raw/refs/heads/main/Lana%20Del%20Rey%20-%20Ultraviolence.mp3" type="audio/mpeg">
   Seu navegador não suporta áudio 😢
 </audio>
+
 
   <script>
     const botao = document.getElementById('botao-coracao');
