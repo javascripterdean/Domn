@@ -49,7 +49,7 @@
       position: absolute;
       font-size: 30px;
       color: red;
-      animation: flutuar 3s linear infinite;
+      animation: flutuar 5s linear infinite;
     }
 
     @keyframes flutuar {
@@ -67,9 +67,14 @@
 <body>
   <button id="botao-coracao">❤️</button>
   <div class="mensagem" id="mensagem">
-    <p feliz dia dos namorados be te amo muito muito que nosso amor dure pro resto da vida,vc é uma garota incrivel e tras cores a ele </p>
+    <p>Feliz Dia dos Namorados, Bê! Te amo muito, muito! Que nosso amor dure pro resto da vida. Você é uma garota incrível e traz cores à minha vida 💖</p>
     <p class="te-amo">Te amo, Ayla 💘</p>
   </div>
+
+  <audio autoplay loop>
+    <source src="https://raw.githubusercontent.com/javascripterdean/Domn/main/efeito-jumento.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio 😢
+  </audio>
 
   <script>
     const botao = document.getElementById('botao-coracao');
@@ -78,22 +83,20 @@
     botao.addEventListener('click', () => {
       botao.style.display = 'none';
       mensagem.style.display = 'block';
-      explodirCoracoes();
+      setInterval(explodirCoracoes, 300);
     });
 
     function explodirCoracoes() {
-      for (let i = 0; i < 80; i++) {
-        const coracao = document.createElement('div');
-        coracao.classList.add('coraçao');
-        coracao.style.left = Math.random() * 100 + 'vw';
-        coracao.style.top = Math.random() * 100 + 'vh';
-        coracao.innerText = '❤️';
-        document.body.appendChild(coracao);
+      const coracao = document.createElement('div');
+      coracao.classList.add('coraçao');
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.top = '100vh';
+      coracao.innerText = '❤️';
+      document.body.appendChild(coracao);
 
-        setTimeout(() => {
-          coracao.remove();
-        }, 3000);
-      }
+      setTimeout(() => {
+        coracao.remove();
+      }, 5000);
     }
   </script>
 </body>
