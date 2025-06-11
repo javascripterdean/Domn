@@ -45,7 +45,7 @@
       color: #ff1493;
     }
 
-    .coraçao {
+    .coracao {
       position: absolute;
       font-size: 30px;
       color: red;
@@ -67,7 +67,7 @@
 <body>
   <button id="botao-coracao">❤️</button>
   <div class="mensagem" id="mensagem">
-    <p>Feliz Dia dos Namorados, Bê! Te amo muito, muito! Que nosso amor dure pro resto da vida. Você é uma garota incrível e traz cores à minha vida,vc e a minha princesa ervilha,minha deusa,sabe que faço de tudo por voce,prometo melhorar muito,pra trazer muita felicidade a voce mesmo com a distancia,voce e uma mulher incrivel q merece muito,nao tive muito tempo pra fazer esse site,queria ter feito um disign melhor,mais fiz de coraçao pra voce minha princesa te amo muito 💖</p>
+    <p>Feliz Dia dos Namorados, Bê! Te amo muito, muito! Que nosso amor dure pro resto da vida. Você é uma garota incrível e traz cores à minha vida, vc é a minha princesa ervilha, minha deusa. Sabe que faço de tudo por você, prometo melhorar muito pra trazer muita felicidade a você, mesmo com a distância. Você é uma mulher incrível que merece muito. Não tive muito tempo pra fazer esse site, queria ter feito um design melhor, mas fiz de coração pra você, minha princesa. Te amo muito 💖</p>
     <p class="te-amo">Te amo, Ayla 💘</p>
   </div>
 
@@ -84,13 +84,13 @@
     botao.addEventListener('click', () => {
       botao.style.display = 'none';
       mensagem.style.display = 'block';
-      musica.play(); // começa a música
+      musica.play();
       setInterval(explodirCoracoes, 300);
     });
 
     function explodirCoracoes() {
       const coracao = document.createElement('div');
-      coracao.classList.add('coraçao');
+      coracao.classList.add('coracao');
       coracao.style.left = Math.random() * 100 + 'vw';
       coracao.style.top = '100vh';
       coracao.innerText = '❤️';
