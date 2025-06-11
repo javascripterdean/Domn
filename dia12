@@ -71,19 +71,20 @@
     <p class="te-amo">Te amo, Ayla 💘</p>
   </div>
 
- <audio autoplay loop>
-  <source src="https://github.com/javascripterdean/Domn/raw/refs/heads/main/Lana%20Del%20Rey%20-%20Ultraviolence.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio 😢
-</audio>
-
+  <audio id="musica" loop>
+    <source src="https://github.com/javascripterdean/Domn/raw/refs/heads/main/Lana%20Del%20Rey%20-%20Ultraviolence.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio 😢
+  </audio>
 
   <script>
     const botao = document.getElementById('botao-coracao');
     const mensagem = document.getElementById('mensagem');
+    const musica = document.getElementById('musica');
 
     botao.addEventListener('click', () => {
       botao.style.display = 'none';
       mensagem.style.display = 'block';
+      musica.play(); // começa a música
       setInterval(explodirCoracoes, 300);
     });
 
